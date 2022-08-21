@@ -2,7 +2,7 @@
   "name": "social-media-account",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://Robert170304.github.io/authenticated-profile-page",
+  "homepage": "https://Robert170304.github.io/social-media-profile-page",
   "dependencies": {
     "@headlessui/react": "^1.6.6",
     "@heroicons/react": "^1.0.6",
