@@ -16,6 +16,7 @@ function CreateAcc() {
 
     const dispatch = useDispatch()
     const {profileImgURL} = useSelector((state) => state.UserData)
+    console.log(profileImgURL)
     const [inputVals, setInputVals] = React.useState({
         firstName:"",
         lastName:"",
@@ -30,6 +31,7 @@ function CreateAcc() {
     const navigateProfile = useNavigate()
     
     const imgRef = ref(storage, 'userProfileImg')
+    console.log('img ref =====>', imgRef)
     function gettingPathonChange(e) {
         setInputVals((oldVals) => {
             return {...oldVals, 
@@ -40,8 +42,8 @@ function CreateAcc() {
 
     
     function uploadImg() {
-        if (!inputVals.profileImgSrc) return;
-        uploadBytes(imgRef, inputVals.profileImgSrc).then(() => {
+        if (!profileImgURL) return;
+        uploadBytes(imgRef, profileImgURL).then(() => {
             alert('img uploaded')
         })
     }
@@ -50,9 +52,12 @@ function CreateAcc() {
         getDownloadURL(imgRef).then((url) => {
             dispatch(setProfileImgURL(url))
         }).catch((error) => {
-            if(error) dispatch(setProfileImgURL('./userIconIMG.jpg'));
+            if(error) {
+                console.log(error)
+                dispatch(setProfileImgURL('./userIconIMG.jpg'))
+            };
         })
-    },[dispatch, imgRef, inputVals.profileImgSrc])
+    },[dispatch, imgRef])
 
     function saveUserData(e) {
         e.preventDefault()

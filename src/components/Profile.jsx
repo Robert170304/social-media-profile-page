@@ -15,15 +15,6 @@ function Profile() {
   const [isModalOpen, setModal] = React.useState(false)
   const imgArr = ["./demoImg1.jpg", "./demoImg2.jpg", "/katie-zaferes.png", "./mountain-bike.png", "./demoImg1.jpg", "./demoImg2.jpg", "/katie-zaferes.png", "./mountain-bike.png"]
 
-  // const [isLoading, setISloading] = React.useState(true)
-  // const handleLoading = () => {
-  //   setISloading(false);
-  // }
-
-  // React.useEffect(()=>{
-  //   window.addEventListener("load",handleLoading);
-  //   return () => window.removeEventListener("load",handleLoading);
-  // },[])
 
   function deleteProfiiePhoto() {
     deleteFile(fileRef).then(() => {
