@@ -1,7 +1,9 @@
 export default function gettingDataOnChange(event, setterFunc) {
-    const {value, name} = event.target
+    const { value, name } = event.target
     setterFunc((oldVals) => {
-        return {...oldVals, 
+        return {
+            ...oldVals,
             [name]: value
         }
-})}
+    })
+}

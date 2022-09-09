@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-import {getStorage, ref, deleteObject } from 'firebase/storage'
+import { getStorage, ref, deleteObject } from 'firebase/storage'
+import { GoogleAuthProvider, getAuth } from "firebase/auth";
 
 
 const firebaseConfig = {
@@ -16,7 +16,8 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+export const auth = getAuth(app);
+export const provider = new GoogleAuthProvider();
 export const storage = getStorage(app)
 export const fileRef = ref(storage, 'gs://social-media-profile-be982.appspot.com/userProfileImg');
 export const deleteFile = deleteObject
